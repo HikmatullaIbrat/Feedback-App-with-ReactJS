@@ -54,17 +54,26 @@ function App(){
         {id:2, text:'comment two'},
         {id:3, text:'comment three'},
     ]
+    const loading = false
+    // if (loading){
+    //     return <h1>Loading done...</h1>
+    // }
+    
     return(
         <div className="container" >
+            {/* {loading ? "yes" : "no"} */}
+            
             <h1>{title1.toUpperCase()}</h1>
             <p>{body}</p>
             or any other JavaScript content like {Math.random() * (5*4)}
             <h3>Comments length ({comments.length})</h3>
+            {loading ? (
             <ul>
                 {comments.map((comment, index)=>(
                     <li key={index}>{comment.text}</li>
                 ))}
-            </ul>
+            </ul>) : 'nothing here...'}
+            
         </div>
     )
 }
