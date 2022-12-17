@@ -46,36 +46,49 @@ import React from "react"
 //     )
    
 // }
-function App(){
-    let title1 =   'Blog Post'
-    const body = 'This is body contents'
-    const comments = [
-        {id:1, text:'comment one'},
-        {id:2, text:'comment two'},
-        {id:3, text:'comment three'},
-    ]
-    const loading = false
-    // if (loading){
-    //     return <h1>Loading done...</h1>
-    // }
+// function App(){
+//     let title1 =   'Blog Post'
+//     const body = 'This is body contents'
+//     const comments = [
+//         {id:1, text:'comment one'},
+//         {id:2, text:'comment two'},
+//         {id:3, text:'comment three'},
+//     ]
+//     const loading = false
+//     // if (loading){
+//     //     return <h1>Loading done...</h1>
+//     // }
     
-    return(
-        <div className="container" >
-            {/* {loading ? "yes" : "no"} */}
+//     return(
+//         <div className="container" >
+//             {/* {loading ? "yes" : "no"} */}
             
-            <h1>{title1.toUpperCase()}</h1>
-            <p>{body}</p>
-            or any other JavaScript content like {Math.random() * (5*4)}
-            <h3>Comments length ({comments.length})</h3>
-            {loading ? (
-            <ul>
-                {comments.map((comment, index)=>(
-                    <li key={index}>{comment.text}</li>
-                ))}
-            </ul>) : 'nothing here...'}
+//             <h1>{title1.toUpperCase()}</h1>
+//             <p>{body}</p>
+//             or any other JavaScript content like {Math.random() * (5*4)}
+//             <h3>Comments length ({comments.length})</h3>
+//             {loading ? (
+//             <ul>
+//                 {comments.map((comment, index)=>(
+//                     <li key={index}>{comment.text}</li>
+//                 ))}
+//             </ul>) : 'nothing here...'}
             
-        </div>
-    )
+//         </div>
+//     )
+// }
+
+import Header from "./components/Header"
+function App(){
+   return(
+    <>
+    {/* <Header text="Hello World" /> */}
+    <Header text = "How are you doing?" />
+    <div className="container">
+        <h1>My App</h1>
+    </div>
+    </>
+   )
 }
 
 // export the app.js components to index.js
