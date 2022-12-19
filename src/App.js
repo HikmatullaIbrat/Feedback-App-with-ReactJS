@@ -83,7 +83,8 @@ function App(){
    return(
     <>
     {/* <Header text="Hello World" /> */}
-    <Header text = "How are you doing?" />
+    {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
+    <Header/>
     <div className="container">
         <h1>My App</h1>
     </div>
