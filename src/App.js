@@ -79,6 +79,7 @@ import React from "react"
 // }
 
 import Header from "./components/Header"
+import FeedbackItem from "./components/FeedbackItem"
 function App(){
    return(
     <>
@@ -86,7 +87,7 @@ function App(){
     {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
     <Header/>
     <div className="container">
-        <h1>My App</h1>
+        <FeedbackItem />
     </div>
     </>
    )
