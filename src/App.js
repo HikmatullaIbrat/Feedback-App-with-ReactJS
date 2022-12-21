@@ -79,15 +79,20 @@ import React from "react"
 // }
 
 import Header from "./components/Header"
-import FeedbackItem from "./components/FeedbackItem"
+// import FeedbackItem from "./components/FeedbackItem"
+import FeedbackData from "./data/feedbackData" 
+import FeedbackList from "./components/FeedbackList"
+import { useState } from "react"
 function App(){
+    const [feedback, setFeedback] = useState(FeedbackData)
    return(
     <>
     {/* <Header text="Hello World" /> */}
     {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
     <Header/>
     <div className="container">
-        <FeedbackItem />
+        {/* <FeedbackItem /> */}
+        <FeedbackList  feedback = {feedback}/>
     </div>
     </>
    )
