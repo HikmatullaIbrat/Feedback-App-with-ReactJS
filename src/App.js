@@ -82,6 +82,7 @@ import Header from "./components/Header"
 // import FeedbackItem from "./components/FeedbackItem"
 import FeedbackData from "./data/feedbackData" 
 import FeedbackList from "./components/FeedbackList"
+import Card from "./components/shared/card"
 import { useState } from "react"
 function App(){
     const [feedback, setFeedback] = useState(FeedbackData)
@@ -93,6 +94,7 @@ function App(){
     <div className="container">
         {/* <FeedbackItem /> */}
         <FeedbackList  feedback = {feedback}/>
+        <Card>Hello World</Card>
     </div>
     </>
    )
