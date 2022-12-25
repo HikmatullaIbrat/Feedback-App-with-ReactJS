@@ -12,7 +12,9 @@ function FeedbackItem({item}) {
     //     })
     // }
 
-  return (
+  return ( 
+    // Assing true for reverse if you want to display the reverse styles
+    // so it is a conditional class
     <Card reverse={true}>
         <div className="num-display">{item.rating}</div>
         <div className="text-display">{item.text}</div>
