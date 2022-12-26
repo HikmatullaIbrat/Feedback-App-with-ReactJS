@@ -82,10 +82,17 @@ import Header from "./components/Header"
 // import FeedbackItem from "./components/FeedbackItem"
 import FeedbackData from "./data/feedbackData" 
 import FeedbackList from "./components/FeedbackList"
-import Card from "./components/shared/card"
+// import Card from "./components/shared/card"
 import { useState } from "react"
 function App(){
     const [feedback, setFeedback] = useState(FeedbackData)
+    const deleteFeedback = (id) => {
+        if(window.confirm("Are you sure want to delete?")){
+            // the below line means to return all items without this clicked one, so we used filter()
+            setFeedback(feedback.filter((item) => item.id !==id))
+        }
+        console.log("App", id)
+    }
    return(
     <>
     {/* <Header text="Hello World" /> */}
@@ -93,8 +100,8 @@ function App(){
     <Header/>
     <div className="container">
         {/* <FeedbackItem /> */}
-        <FeedbackList  feedback = {feedback}/>
-        <Card>Hello World</Card>
+        <FeedbackList  feedback = {feedback} handleDelete = {deleteFeedback}/>
+        {/* <Card>Hello World</Card> */}
     </div>
     </>
    )

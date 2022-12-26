@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-
 function Card({children, reverse}) {
   return (
     // It means if reverse is correct so assign and display the class of reverse
