@@ -83,6 +83,7 @@ import Header from "./components/Header"
 import FeedbackData from "./data/feedbackData" 
 import FeedbackList from "./components/FeedbackList"
 // import Card from "./components/shared/card"
+import FeedbackStats from "./components/FeedbackStats"
 import { useState } from "react"
 function App(){
     const [feedback, setFeedback] = useState(FeedbackData)
@@ -99,6 +100,8 @@ function App(){
     {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
     <Header/>
     <div className="container">
+        {/* Feed Back Prop passed to FeedbackStats component */}
+        <FeedbackStats feedback={feedback} />
         {/* <FeedbackItem /> */}
         <FeedbackList  feedback = {feedback} handleDelete = {deleteFeedback}/>
         {/* <Card>Hello World</Card> */}
