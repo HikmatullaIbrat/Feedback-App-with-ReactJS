@@ -11,7 +11,7 @@ function FeedbackStats({feedback}) {
   return (
     <div className='feedback-stats'>
         <h4>{feedback.length} Reviews</h4>
-
+      
         <h4>Average Rating: {isNaN(Average) ? 0 : Average}</h4>
     </div>
   )
@@ -19,4 +19,6 @@ function FeedbackStats({feedback}) {
 FeedbackStats.propTypes = {
     feedback: PropTypes.array.isRequired,
 }
+
+  /* component level state  to review*/
 export default FeedbackStats
