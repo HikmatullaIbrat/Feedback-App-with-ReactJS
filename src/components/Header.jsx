@@ -22,13 +22,13 @@ function Header({ text, textColor, bgColor }) { // we directly passed the prop b
   )
 }
 // We can assign default prop if don't assign it on main body of
-Header.defaultProps = {
-    text:'How was your interview?',
-    // or if didn't define anythin in app.js or header we can assign in defaultProps of Header
-    bgColor: "LightSalmon",
-    textColor: "#808000"
+// Header.defaultProps = {
+//     // text:'How was your interview?',
+//     // or if didn't define anythin in app.js or header we can assign in defaultProps of Header
+//     bgColor: "LightSalmon",
+//     textColor: "#808000"
 
-}
+// }
 
 // And we can also specify Prop types by importing PropTypes property to restrict the variables.
 Header.propTypes = {
