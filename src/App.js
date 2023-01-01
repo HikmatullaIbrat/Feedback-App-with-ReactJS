@@ -78,6 +78,7 @@ import React from "react"
 //     )
 // }
 
+import {v4 as uuidv4} from 'uuid' // uuid is installing by internet
 import Header from "./components/Header"
 // import FeedbackItem from "./components/FeedbackItem"
 import FeedbackData from "./data/feedbackData" 
@@ -88,6 +89,13 @@ import FeedbackForm from "./components/FeedbackForm"
 import { useState } from "react"
 function App(){
     const [feedback, setFeedback] = useState(FeedbackData)
+
+    const addFeedback = (newFeedback) =>{ // Adding a new Feedback
+        newFeedback.id = uuidv4()
+        console.log(newFeedback)
+        setFeedback([newFeedback, ...feedback])
+    }  
+
     const deleteFeedback = (id) => {
         if(window.confirm("Are you sure want to delete?")){
             // the below line means to return all items without this clicked one, so we used filter()
@@ -95,18 +103,19 @@ function App(){
         }
         console.log("App", id)
     }
+    
    return(
     <>
     {/* <Header text="Hello World" /> */}
     {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
     <Header/>
     <div className="container">
-        <FeedbackForm />
+        <FeedbackForm handleAdd = {addFeedback}/> {/* passing addFeedback to Feedbackform */}
         {/* Feed Back Prop passed to FeedbackStats component */}
         <FeedbackStats feedback={feedback} />
         {/* <FeedbackItem /> */}
         <FeedbackList  feedback = {feedback} handleDelete = {deleteFeedback}/>
-        {/* <Card>Hello World</Card> */}
+        {/* <Card>Hello World</Card> */}    
         
     </div>
     </>
