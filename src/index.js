@@ -7,7 +7,7 @@ import App from './App'
 import './index.css'
 
 // render() get two args, first what we want to show and second we specify the target place with help DOM
-ReactDOM.render(<h1>sanga yi from render?</h1>,document.getElementById('root'));
+// ReactDOM.render(<h1>sanga yi from render?</h1>,document.getElementById('root'));
 
 // ReactDOM.render(<App />, document.getElementById('root'))
 
