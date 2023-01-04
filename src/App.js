@@ -78,47 +78,31 @@ import React from "react"
 //     )
 // }
 
-import {v4 as uuidv4} from 'uuid' // uuid is installing by internet
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import AboutPage from "./pages/AboutPage"
 import Header from "./components/Header"
 // import FeedbackItem from "./components/FeedbackItem"
-import FeedbackData from "./data/feedbackData" 
-import FeedbackList from "./components/FeedbackList"
-// import Card from "./components/shared/card"
-import FeedbackStats from "./components/FeedbackStats"
-import FeedbackForm from "./components/FeedbackForm"
-import { useState } from "react"
+import Container from "./components/Container"
+
 function App(){
-    const [feedback, setFeedback] = useState(FeedbackData)
-
-    const addFeedback = (newFeedback) =>{ // Adding a new Feedback
-        newFeedback.id = uuidv4()
-        console.log(newFeedback)
-        setFeedback([newFeedback, ...feedback])
-    }  
-
-    const deleteFeedback = (id) => {
-        if(window.confirm("Are you sure want to delete?")){
-            // the below line means to return all items without this clicked one, so we used filter()
-            setFeedback(feedback.filter((item) => item.id !==id))
-        }
-        console.log("App", id)
-    }
     
    return(
-    <>
+    
+    <BrowserRouter>
     {/* <Header text="Hello World" /> */}
     {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
     <Header/>
-    <div className="container">
-        <FeedbackForm handleAdd = {addFeedback}/> {/* passing addFeedback to Feedbackform */}
-        {/* Feed Back Prop passed to FeedbackStats component */}
-        <FeedbackStats feedback={feedback} />
-        {/* <FeedbackItem /> */}
-        <FeedbackList  feedback = {feedback} handleDelete = {deleteFeedback}/>
-        {/* <Card>Hello World</Card> */}    
-        
-    </div>
-    </>
+        <Routes>
+            
+            
+            <Route path='/' element={ <Container />} />
+                   
+            <Route path="/about" element={< AboutPage />} />
+            {/* <Card>Hello World</Card> */} 
+            
+        </Routes>
+    </BrowserRouter>
    )
 }
 

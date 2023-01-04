@@ -13,7 +13,7 @@ function Header({ text, textColor, bgColor }) { // we directly passed the prop b
   return (
     <header style = {headerStyles}>
          <div className="container">
-            <h2>Feedback UI from Header</h2>
+            {/* <h2>Feedback UI from Header</h2> */}
             {/* <h2>{props.text}</h2> */}
             <h2>{text}</h2>
          </div>
@@ -23,7 +23,7 @@ function Header({ text, textColor, bgColor }) { // we directly passed the prop b
 }
 // We can assign default prop if don't assign it on main body of
 Header.defaultProps = {
-    text:'How was your interview?',
+    // text:'How was your interview?',
     // or if didn't define anythin in app.js or header we can assign in defaultProps of Header
     bgColor: "LightSalmon",
     textColor: "#808000"
