@@ -79,12 +79,15 @@ import React from "react"
 // }
 
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom'
+import Card from "./components/shared/card"
 import AboutPage from "./pages/AboutPage"
 import Header from "./components/Header"
 // import FeedbackItem from "./components/FeedbackItem"
 import Container from "./components/Container"
 import AboutIconLink from "./components/AboutIconLink"
+import Post from "./components/Post"
+
 function App(){
     
    return(
@@ -101,8 +104,20 @@ function App(){
             <Route path="/about" element={< AboutPage />} />
             {/* <Card>Hello World</Card> */} 
             
+            {/* <Route path="/post/:id/:name" element={<Post />} /> */}
+            <Route path="/post/*" element={<Post />} />
             
         </Routes>
+        <Card>
+            <NavLink to='/' activeClassName="active">
+                Home    
+            </NavLink>  
+
+            <NavLink to='/about' activeClassName="active">
+                   About
+            </NavLink>
+            
+        </Card>
         <AboutIconLink />
     </BrowserRouter>
    )

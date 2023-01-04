@@ -210,7 +210,9 @@ input:focus {
 .about p {
   margin: 10px 0;
 }
-
+.active{
+  background-color: yellow;
+}
 @media (max-width: 600px) {
   .rating li {
     margin: 10px 3px;
