@@ -84,7 +84,7 @@ import AboutPage from "./pages/AboutPage"
 import Header from "./components/Header"
 // import FeedbackItem from "./components/FeedbackItem"
 import Container from "./components/Container"
-
+import AboutIconLink from "./components/AboutIconLink"
 function App(){
     
    return(
@@ -101,7 +101,9 @@ function App(){
             <Route path="/about" element={< AboutPage />} />
             {/* <Card>Hello World</Card> */} 
             
+            
         </Routes>
+        <AboutIconLink />
     </BrowserRouter>
    )
 }

@@ -13,7 +13,7 @@ function Header({ text, textColor, bgColor }) { // we directly passed the prop b
   return (
     <header style = {headerStyles}>
          <div className="container">
-            {/* <h2>Feedback UI from Header</h2> */}
+            <h2>Feedback UI</h2>
             {/* <h2>{props.text}</h2> */}
             <h2>{text}</h2>
          </div>
