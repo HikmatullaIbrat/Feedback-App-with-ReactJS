@@ -1,8 +1,14 @@
-import { useState } from "react"    
-
+import { useState, useContext, useEffect } from "react"    
+import FeedbackContext from "../context/FeedbackContext" 
 function RatingSelect({ select }) {
     const [selected, setSelected] = useState(10)
 
+    const {feedbackEdit} = useContext(FeedbackContext)
+
+    // enable edit feedback and catcch the selected value
+    useEffect(()=> {
+        setSelected(feedbackEdit.item.rating)
+    }, [feedbackEdit])
     // handleChange var created for getting the value of Feedback
     const handleChange = (e) => {
         // e.currentTarget.value is the value when we click on target, its type is string

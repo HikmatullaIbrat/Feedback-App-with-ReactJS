@@ -5,14 +5,24 @@ import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
 import FeedbackContext from '../context/FeedbackContext'
 import { useContext } from 'react'
+import { useEffect } from 'react'
 
 function FeedbackForm({handleAdd}) {
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
     const [rating, setRating] = useState(10)
-    const {addFeedback} = useContext(FeedbackContext)
+
+    const {addFeedback, feedbackEdit, updateFeedback} = useContext(FeedbackContext)
     
+    useEffect(()=>{
+        // console.log('Hello React')
+        if(feedbackEdit.edit === true){
+            setBtnDisabled(false)
+            setText(feedbackEdit.item.text)
+            setRating(feedbackEdit.item.rating)
+        }
+    },[feedbackEdit])
     const handleTextChange = (e) => {
         // console.log(e.target.value)
         // setText(e.target.value)
@@ -39,8 +49,14 @@ function FeedbackForm({handleAdd}) {
                 rating,   
             }
             // console.log(newFeedback)
+            // if the existed feedback selected for editing
+            if(feedbackEdit.edit === true){
+                updateFeedback(feedbackEdit.item.id, newFeedback)
+            } // if existed feedback is not selected so it means it is new feedback 
+            else{addFeedback(newFeedback)
+            }
             // handleAdd(newFeedback)
-            addFeedback(newFeedback)
+            
             setText('')
         }
     }
