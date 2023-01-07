@@ -1,6 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-function FeedbackStats({feedback}) {
+// import PropTypes from 'prop-types'
+import {useContext} from 'react' 
+import FeedbackContext from '../context/FeedbackContext'
+//function FeedbackStats({feedback}) {  feedback prop not used in new version after using context, below line
+  function FeedbackStats() {
+
+    const {feedback} = useContext(FeedbackContext)
+
+
     // Calculating rating Avg
     let Average = feedback.reduce((accumolator, current) => {
         return accumolator + current.rating
@@ -15,9 +22,6 @@ function FeedbackStats({feedback}) {
         <h4>Average Rating: {isNaN(Average) ? 0 : Average}</h4>
     </div>
   )
-}
-FeedbackStats.propTypes = {
-    feedback: PropTypes.array.isRequired,
 }
 
   /* component level state  to review*/

@@ -87,11 +87,12 @@ import Header from "./components/Header"
 import Container from "./components/Container"
 import AboutIconLink from "./components/AboutIconLink"
 import Post from "./components/Post"
+import { FeedbackProvider } from "./context/FeedbackContext"
 
 function App(){
     
    return(
-    
+    <FeedbackProvider>
     <BrowserRouter>
     {/* <Header text="Hello World" /> */}
     {/* <Header text = "How are you doing?" textColor="SlateBlue" bgColor="Salmon"/> */}
@@ -120,6 +121,7 @@ function App(){
         </Card>
         <AboutIconLink />
     </BrowserRouter>
+    </FeedbackProvider>
    )
 }
 
