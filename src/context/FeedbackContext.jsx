@@ -60,8 +60,10 @@ export const  FeedbackProvider = ({children}) => {
         // console.log(data)
         setFeedback([data, ...feedback])
     }
-    const deleteFeedback = (id) => {
+    const deleteFeedback = async (id) => {
         if(window.confirm("Are you sure want to delete?")){
+            // this below line deletes the feedback from json server
+            await fetch(`/feedback/${id}`,{method:'DELETE'})
             // the below line means to return all items without this clicked one, so we used filter()
             setFeedback(feedback.filter((item) => item.id !==id))
         }
@@ -75,10 +77,20 @@ export const  FeedbackProvider = ({children}) => {
         })
     }
     // update feedback item
-    const updateFeedback = (id, updItem) =>{
+    const updateFeedback = async (id, updItem) =>{
+        const response = await fetch(`/feedback/${id}`,{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updItem)
+        })
+        // after updated action executed on json, we show json.db content by below line
+        const data= await response.json()
+
         // console.log(id, updItem)
         setFeedback(//...item means current item which is selected to edit, ...upditem to update current item
-            feedback.map((item) => (item.id === id ? {...item, ...updItem} : item))
+            feedback.map((item) => (item.id === id ? {...item, ...data} : item))
         )
     }
     return (
