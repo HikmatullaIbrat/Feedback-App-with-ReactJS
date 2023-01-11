@@ -4,18 +4,24 @@ import FeedbackItem from './FeedbackItem'
 import {motion, AnimatePresence} from 'framer-motion'
 import {useContext} from 'react' 
 import FeedbackContext from '../context/FeedbackContext'
+import Spinnner from './shared/Spinnner'
 // function FeedbackList({feedback, handleDelete}) {
 
   // deletion for feedback and handleDelete props and using context instead of them  
 function FeedbackList() {
-    const {feedback} = useContext(FeedbackContext)
+    const {feedback, isLoading} = useContext(FeedbackContext)
 
 
     // console.log(feedback)
-    if(!feedback || feedback.length === 0){
-        return <p>No feedback Yet.</p>
+    // if there is no data and not Loading icon
+    if(!isLoading && (!feedback || feedback.length === 0)){
+        return  <Spinnner />
+        
     }
-  return (
+  return isLoading ? (
+
+    <Spinnner />
+  ) : (
 
     // <div className='feedback-list'>{feedback.map((item)=>(
     //     // <FeedbackItem key={item.id} item={item} handleDelete={(id) => console.log(id)} />
